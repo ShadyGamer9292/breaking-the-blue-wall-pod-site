@@ -92,3 +92,22 @@ $(document).ready(function () {
 });
 
 
+
+/* --------------------------------------------
+   Episodes page script 
+-------------------------------------------- */
+
+$(function(){
+  let zoom = $('.feature').width() * 2.5;
+  $(window).on('scroll', function(){
+    let fromTop = $(window).scrollTop();
+    let newSize = zoom - (fromTop/3);
+    if (newSize > $('.feature').width()) {
+        $('.feature').css({
+            'background-size': newSize + 'px',
+            'filter':'blur(' + (fromTop/100) + 'px)',
+            'opacity': 1 - (fromTop / $('html').height()) * 1.3
+        });
+    }
+  });
+});

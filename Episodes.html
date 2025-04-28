@@ -10,7 +10,9 @@
 <!-- Sticky Navigation Bar (Now matches index.html) -->
 <div class="sticky-bar visible">
   <div class="bar-left">
-    <a href="index.html" style="text-decoration: none;">Breaking the Blue Wall</a>
+    <a href="index.html" style="text-decoration: none;">
+      <img src="https://i.imgur.com/WwZCakT.png" alt="In The Dark" style="height: 23px; scale: 2; translate: 50%">
+    </a>
   </div>
   <div class="bar-right">
     <a href="Episodes.html" class="episodes-link">Episodes</a>
@@ -19,27 +21,98 @@
 </div>
 
 <!-- Episodes Content -->
-<div class="wrapper">
-  <div class="content" style="padding-top: 120px; color: white; text-align: center;">
-    <h1 style="font-size: 3vw; color: #4679e6; margin-bottom: 40px;">Podcast Episodes</h1>
 
-    <div class="episode-list" style="max-width: 900px; margin: auto; text-align: left; font-size: 1.2rem; line-height: 1.6;">
-      <div class="episode" style="margin-bottom: 2rem;">
-        <h2 style="color: #4b8bd4;">Episode 1: Behind the Silence</h2>
-        <p>An introduction to the Blue Wall of Silence and its deep-rooted influence on police culture.</p>
+
+<div class="wrapper episodes-page">
+  <div class="feature episodes-feature"></div>
+    <div class="content episodes-page" style="padding-top: 120px; color: white; text-align: center;">
+      <div class="episodes-content-background">
+        <h1 style="font-size: 3vw; color: #4679e6;">Podcast Episodes</h1>
+        <div class="featured-episode">
+          <hr style="width: 50%; margin: auto; margin-bottom: 20px;">
+          <div class="podcast-player" style="display: flex; align-items: center; gap: 1rem;">
+            <a href="https://audio.com/dylan-ross-1/audio/in-the-dark-special-episode" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+              <img src="images/PodCover.png" alt="Podcast Cover" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 1rem;">
+                <h4 style="font-size: 2rem; margin: 0; transition: color 0.3s ease;">Bonus Episode: Breaking The Blue Wall</h4>
+                <audio controls style="margin-top: 0.5rem; width: 100%;">
+                  <source src="audio/PodEpisode.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 2rem; max-width: 35vw;">
+                <p style="font-size: 1.5rem;"> In this special episode of In the Dark, we explore how systemic corruption and the Blue Wall of Silence protected those responsible for Sandra Birchmore’s death. With insights from a crime analyst, a psychologist, and a media researcher, we reveal how loyalty, fear, and media manipulation allow injustice to thrive—and what must change to break the cycle.</p>
+              </div>
+            </a>
+          </div>
+          
+          <style>
+            .podcast-player a:hover img {
+              transform: scale(1.05);
+              box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            }
+          
+            .podcast-player a:hover h4 {
+              color: #dba100; /* golden highlight on hover */
+            }
+
+            .episode-image{
+              width: 120px; 
+              height: 120px; 
+              object-fit: cover; 
+              border-radius: 8px;
+            }
+          </style>
+          
+          
+        <hr style="width: 75%; margin: auto; margin-bottom: 2rem">
+        <div class="episode-list" style="max-width: 900px; margin: auto; font-size: 1.2rem; line-height: 1.6; text-align: left;">
+  
+          <div class="episode" style="display: flex; align-items: center; margin-bottom: 2rem; gap: 20px;">
+            <img src="images/EP4.jpg" alt="Episode 4 Image" class="episode-image">
+            <div class="episode-text">
+              <h2 style="color: #4b8bd4; margin: 0;">Episode 4: Breaking the Silence</h2>
+              <p style="margin-top: 0.5rem;">We reflect on how public pressure, media attention, and federal intervention are essential to challenging corruption.</p>
+            </div>
+          </div>
+        
+          <div class="episode" style="display: flex; align-items: center; margin-bottom: 2rem; gap: 20px;">
+            <img src="images/EP3.jpg" alt="Episode 3 Image" class="episode-image">
+            <div class="episode-text">
+              <h2 style="color: #4b8bd4; margin: 0;">Episode 3: The Toll of Silence</h2>
+              <p style="margin-top: 0.5rem;">We explore how the Blue Wall impacts victims and families, through personal stories and patterns of systemic failure.</p>
+            </div>
+          </div>
+        
+          <div class="episode" style="display: flex; align-items: center; margin-bottom: 2rem; gap: 20px;">
+            <img src="images/EP2.webp" alt="Episode 2 Image" class="episode-image">
+            <div class="episode-text">
+              <h2 style="color: #4b8bd4; margin: 0;">Episode 2: Protecting Their Own</h2>
+              <p style="margin-top: 0.5rem;">We examine how police loyalty and silence shielded officers involved in misconduct—and the cost of that cover-up.</p>
+            </div>
+          </div>
+
+          <div class="episode" style="display: flex; align-items: center; margin-bottom: 2rem; gap: 20px;">
+            <img src="images/EP1.jpg" alt="Episode 1 Image" class="episode-image">
+            <div class="episode-text">
+              <h2 style="color: #4b8bd4; margin: 0;">Episode 1: The Case of Sandra Birchmore</h2>
+              <p style="margin-top: 0.5rem;">We uncover the disturbing details behind Sandra Birchmore’s death and the police department’s efforts to conceal the truth.</p>
+            </div>
+          </div>
+
+        </div>
+        
+          
+        </div>
+        <!-- Add more episodes as needed -->
       </div>
-      <div class="episode" style="margin-bottom: 2rem;">
-        <h2 style="color: #4b8bd4;">Episode 2: The Case of Konoa Wilson</h2>
-        <p>We examine the SDPD’s handling of the fatal shooting of Konoa Wilson and what it reveals about systemic cover-ups.</p>
-      </div>
-      <!-- Add more episodes as needed -->
     </div>
   </div>
 </div>
 
 <div class="footer-bar">
     <div class="footer-left">
-      &copy; 2025 Breaking the Blue Wall
+      &copy; 2025 In The Dark Media
     </div>
     <div class="footer-right">
       <a href="https://twitter.com" target="_blank">Twitter</a>
