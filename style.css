@@ -271,7 +271,7 @@ body {
   background-size: 100%;
   z-index: 0;
   box-shadow: 0 -50px 50px 0px rgba(0,0,0,1) inset; /* 👈 Bottom blur effect */
-  filter: brightness(.7) saturate(.65);
+  filter: brightness(.55) saturate(.6);
 }
 
 

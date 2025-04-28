@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | Breaking the Blue Wall</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- Sticky Navigation Bar -->
+<div class="sticky-bar visible">
+  <div class="bar-left">
+    <a href="index.html" style="text-decoration: none;">
+      <img src="https://i.imgur.com/WwZCakT.png" alt="In The Dark" style="height: 23px; translate: 50%;">
+    </a>
+  </div>
+  <div class="bar-right">
+    <a href="Episodes.html" class="episodes-link">Episodes</a>
+    <a href="About.html" class="about-link">About</a>
+  </div>
+</div>
+
+
+
+<style>
+    .team-member {
+        background-color: rgba(0,0,0,0.6); 
+        padding: 1rem; 
+        border-radius: 10px; 
+        width: 250px;
+        cursor: pointer;
+    }
+
+    .team-member p {
+        font-size: 2rem;
+    }
+
+    .headshot-image{
+        width: 200px; 
+        height: 200px; 
+        border-radius: 8px;
+        object-fit: cover;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    html, body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+  </style>
+
+
+
+<!-- About Page Content -->
+<div class="wrapper about-page">
+  <div class="feature about-feature"></div>
+  <div class="content about-content" style="padding-top: 120px; color: white; text-align: center;">
+    <div class="about-content-background">
+      <h1 style="font-size: 3vw; color: #4679e6;">Meet the Team</h1>
+      <div class="team-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+        
+        <!-- Person 1 -->
+        <div class="team-member" data-description="Jacob is the lead host, bringing investigative reporting and a sharp focus to each case we cover.">
+            <img src="images/about/Jacob.jpg" alt="Person 1" class="headshot-image">
+            <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Jacob</h2>
+            <p>Lead Host and Researcher</p>
+          </div>
+          
+
+        <!-- Person 2 -->
+        <div class="team-member">
+          <img src="images/about/Jonah.jpg" alt="Person 2" class="headshot-image">
+          <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Jonah</h2>
+          <p>Crime Analyst and Writer</p>
+        </div>
+
+        <!-- Person 3 -->
+        <div class="team-member">
+          <img src="images/about/Jorge.jpg" alt="Person 3" class="headshot-image">
+          <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Jorge</h2>
+          <p>Audio Producer and Editor</p>
+        </div>
+
+        <!-- Person 4 -->
+        <div class="team-member">
+          <img src="images/about/dylan.jpg" alt="Person 4" class="headshot-image">
+          <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Dylan</h2>
+          <p>Media Researcher</p>
+        </div>
+
+        <!-- Person 5 -->
+        <div class="team-member" style="background-color: rgba(0,0,0,0.6); padding: 1rem; border-radius: 10px; width: 250px;">
+          <img src="images/about/Jayden.jpg" alt="Person 5" class="headshot-image">
+          <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Jayden</h2>
+          <p>Field Reporter</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="shared-description" style="margin-top: 3rem; font-size: 1.5rem; min-height: 100px; color: #dba100; transition: all 0.3s ease;">
+    <!-- Text will appear here when you click a person -->
+  </div>
+</div>
+
+
+
+  
+<!-- Footer -->
+<div class="footer-bar">
+  <div class="footer-left">
+    &copy; 2025 In The Dark Media
+  </div>
+  <div class="footer-right">
+    <a href="https://twitter.com" target="_blank">Twitter</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="mailto:contact@bluewallpodcast.com">Email</a>
+  </div>
+</div>
+
+<script>
+    document.querySelectorAll('.team-member').forEach(member => {
+      // Hover effect: slight color shift
+      member.addEventListener('mouseenter', () => {
+        member.style.backgroundColor = 'rgba(70, 121, 230, 0.4)';
+      });
+      member.addEventListener('mouseleave', () => {
+        member.style.backgroundColor = 'rgba(0,0,0,0.6)';
+      });
+    
+      // Click effect: change shared description
+      member.addEventListener('click', () => {
+        const description = member.getAttribute('data-description');
+        document.getElementById('shared-description').innerText = description;
+    
+        // Optional: visually highlight selected member
+        document.querySelectorAll('.team-member').forEach(m => {
+          m.style.border = 'none'; // reset others
+        });
+        member.style.border = '2px solid #dba100'; // highlight clicked one
+      });
+    });
+    </script>
+
+
+</body>
+</html>

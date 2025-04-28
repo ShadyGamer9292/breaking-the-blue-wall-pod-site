@@ -25,43 +25,82 @@
 
 <div class="wrapper episodes-page">
   <div class="feature episodes-feature"></div>
-    <div class="content episodes-page" style="padding-top: 120px; color: white; text-align: center;">
+    <div class="content episodes-page" style="padding-top: 50px; color: white; text-align: center;">
       <div class="episodes-content-background">
         <h1 style="font-size: 3vw; color: #4679e6;">Podcast Episodes</h1>
         <div class="featured-episode">
           <hr style="width: 50%; margin: auto; margin-bottom: 20px;">
-          <div class="podcast-player" style="display: flex; align-items: center; gap: 1rem;">
-            <a href="https://audio.com/dylan-ross-1/audio/in-the-dark-special-episode" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-              <img src="images/PodCover.png" alt="Podcast Cover" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="podcast-player" style="display: flex; align-items: center; gap: 1rem; max-width: 60vw; margin: auto; margin-bottom: 2rem;">
+  
+            <!-- Link ONLY the image and title to the podcast -->
+            <a href="https://audio.com/dylan-ross-1/audio/in-the-dark-special-episode" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;" draggable="false" class="episode-link">
+              <img src="images/PodCover.png" alt="Podcast Cover" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
               <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 1rem;">
-                <h4 style="font-size: 2rem; margin: 0; transition: color 0.3s ease;">Bonus Episode: Breaking The Blue Wall</h4>
+                <h4 style="font-size: 2rem; margin: 0;">Bonus Episode: Breaking The Blue Wall</h4>
                 <audio controls style="margin-top: 0.5rem; width: 100%;">
                   <source src="audio/PodEpisode.mp3" type="audio/mpeg">
                   Your browser does not support the audio element.
                 </audio>
               </div>
-              <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 2rem; max-width: 35vw;">
-                <p style="font-size: 1.5rem;"> In this special episode of In the Dark, we explore how systemic corruption and the Blue Wall of Silence protected those responsible for Sandra Birchmore’s death. With insights from a crime analyst, a psychologist, and a media researcher, we reveal how loyalty, fear, and media manipulation allow injustice to thrive—and what must change to break the cycle.</p>
-              </div>
             </a>
+          
+            <!-- Transcript Link BELOW, separate -->
+            <div style="margin-left: 1rem; margin-top: 0.5rem; text-align: left;"> 
+              <a href="FinalPodcastTranscript.pdf" class="transcript-link" target="_blank">
+                <img src="images/transcription.png" alt="Transcript" class="transcript-link">
+              </a>
+            </div>
+          
+            <!-- Podcast description -->
+            <div style="display: flex; flex-direction: column; max-width: 33vw; max-height: 20vh; overflow: hidden;">
+              <p style="font-size: 1.5rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">In this special episode of In the Dark, we explore how systemic corruption and the Blue Wall of Silence protected those responsible for Sandra Birchmore’s death. With insights from a crime analyst, a psychologist, and a media researcher, we reveal how loyalty, fear, and media manipulation allow injustice to thrive—and what must change to break the cycle.</p>
+            </div>
+
+          
           </div>
           
+          
           <style>
-            .podcast-player a:hover img {
+            .podcast-player a.episode-link:hover img {
               transform: scale(1.05);
               box-shadow: 0 8px 16px rgba(0,0,0,0.5);
             }
+
           
             .podcast-player a:hover h4 {
               color: #dba100; /* golden highlight on hover */
             }
 
-            .episode-image{
-              width: 120px; 
-              height: 120px; 
-              object-fit: cover; 
+            .transcript-link{
+              height: 60px; 
+              width: 60px;
+            }
+
+            .transcript-link a:hover {
+              filter:hue-rotate(20deg);
+            }
+
+            .episode-image {
+              width: 120px;
+              height: 120px;
+              object-fit: cover;
+              aspect-ratio: 1/1; /* 👈 force them to be square */
               border-radius: 8px;
             }
+
+            html, body {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+            }
+
+            .wrapper {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+            }
+
+
           </style>
           
           
@@ -109,7 +148,6 @@
     </div>
   </div>
 </div>
-
 <div class="footer-bar">
     <div class="footer-left">
       &copy; 2025 In The Dark Media
