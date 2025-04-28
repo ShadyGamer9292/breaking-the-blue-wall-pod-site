@@ -1,0 +1,263 @@
+/* --------------------------------------------
+   IMPORT FONTS
+-------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* --------------------------------------------
+   GLOBAL RESET & BASE STYLES
+-------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------
+   WRAPPER & LAYOUT STRUCTURE
+-------------------------------------------- */
+.wrapper,
+.content {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(63, 76, 141, 0.07);
+}
+
+/* --------------------------------------------
+   INTRO SECTION
+-------------------------------------------- */
+.intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+  color: #4679e6;
+  text-shadow:1px 1px 15px rgb(44, 76, 131), 2px 2px 30px rgb(0, 0, 0);  
+  transform-origin: center center;
+}
+
+.intro h1 {
+  font-size: 3vw;
+}
+
+.intro p {
+  font-size: 4vw;
+  font-weight: bolder;
+}
+
+.intro-links {
+  display: flex;
+  gap: 2vw;
+  margin-top: 0.7vh;
+}
+
+.intro-links a {
+  font-size: 2vw;
+  font-weight: bold;
+  text-decoration: none;
+  color: #4b8bd4;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.intro-links a:hover {
+  color: #dba100;
+}
+
+.intro-links a.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* --------------------------------------------
+   SECTION STYLES
+-------------------------------------------- */
+.content .section {
+  width: 100%;
+  height: 40vh;
+}
+
+.gradient-purple,
+.gradient-blue {
+  height: 50vh;
+}
+
+.section.hero {
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+  overflow: hidden;
+  --hero-opacity: 0.6; /* 👈 starting transparency */
+}
+
+.section.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(../test-backup/images/police.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5; /* adjust this value to get the transparency you like */
+  z-index: -1; /* put the background behind the content */
+  opacity: var(--hero-opacity, 0.5); /* use a CSS variable */
+  transition: opacity 0.3s ease;
+}
+
+
+
+
+/* --------------------------------------------
+   STICKY BAR (Appears on scroll)
+-------------------------------------------- */
+.sticky-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(70, 121, 230, 0.70);
+  color: #ffebcc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 2.4rem;
+  z-index: 9999;
+  transform: translateY(-100%);
+  opacity: 0;
+  font-weight: bold;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.sticky-bar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.bar-left a {
+  text-decoration: none;
+  color: #ffebcc;
+  font-weight: bold;
+  font-size: 2.4rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.bar-left a:hover {
+  color: #dba100;
+  text-shadow:1px 1px 15px rgb(131, 101, 44), 1px 1px 10px rgb(119, 119, 119);  
+}
+
+
+.bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* 👈 controls spacing between links */
+}
+
+.bar-right a {
+  color:#ffebcc;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.bar-right a:hover {
+  color: #dba100;
+  text-shadow:1px 1px 15px rgb(131, 101, 44), 1px 1px 20px rgb(0, 0, 0);  
+
+}
+
+
+/* --------------------------------------------
+   IMAGE OVERLAY
+-------------------------------------------- */
+.image-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  perspective: 500px;
+  overflow: hidden;
+  pointer-events: none;
+  scale: 1;
+  filter: brightness(.85);
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.9) inset;
+}
+
+/* --------------------------------------------
+   TEXT BLOCK SECTION (.test)
+-------------------------------------------- */
+.test {
+  position: relative;
+  top: 0px;
+  max-width: 50vw;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  line-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffebcc;
+}
+
+/* --------------------------------------------
+   FOOTER BAR
+-------------------------------------------- */
+
+.footer-bar {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 87, 183, 0.70); /* same as sticky bar */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 999;
+}
+
+.footer-right a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #ff9605; /* or your preferred hover color */
+}
