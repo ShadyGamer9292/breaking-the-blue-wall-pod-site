@@ -22,6 +22,7 @@ body {
   overflow-x: hidden;
 }
 
+
 /* --------------------------------------------
    WRAPPER & LAYOUT STRUCTURE
 -------------------------------------------- */
@@ -91,13 +92,23 @@ body {
 -------------------------------------------- */
 .content .section {
   width: 100%;
-  height: 40vh;
+  min-height: 30vh;
 }
 
-.gradient-purple,
-.gradient-blue {
-  height: 50vh;
+.gradient-purple {
+  height: 20vh;
 }
+
+.gradient-blue {
+  height: auto;
+  min-height: 40vh;
+  padding: 5vh 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* allows .test to grow downward */
+  flex-wrap: wrap;
+}
+
 
 .section.hero {
   position: relative;
@@ -217,19 +228,25 @@ body {
 /* --------------------------------------------
    TEXT BLOCK SECTION (.test)
 -------------------------------------------- */
+@media (max-width: 768px) {
+  .test {
+    max-width: 90vw;
+    font-size: 1.1rem;
+  }
+}
+
+
 .test {
   position: relative;
-  top: 0px;
+  top: 0;
   max-width: 50vw;
   margin: 0 auto;
   padding: 0 1rem;
   text-align: center;
-  line-height: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  line-height: 1.7;
+  display: block; /* switched from flex to block for natural expansion */
   color: #dba100;
+  font-size: 3rem;
 }
 
 /* --------------------------------------------
