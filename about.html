@@ -27,12 +27,16 @@
         background-color: rgba(0,0,0,0.6); 
         padding: 1rem; 
         border-radius: 10px; 
-        width: 250px;
+        width: 260px;
         cursor: pointer;
+        box-shadow: 0px 0px 20px #4b8bd4;
+        user-select: none;
+        border: 2px solid #4b8bd4;
     }
 
     .team-member p {
         font-size: 2rem;
+        user-select: none;
     }
 
     .headshot-image{
@@ -63,12 +67,12 @@
 <div class="wrapper about-page">
   <div class="feature about-feature"></div>
   <div class="content about-content" style="padding-top: 120px; color: white; text-align: center;">
-    <div class="about-content-background">
+    <div class="about-content-background" style="margin-bottom: 3vh;">
       <h1 style="font-size: 3vw; color: #4679e6;">Meet the Team</h1>
       <div class="team-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
         
         <!-- Person 1 -->
-        <div class="team-member" data-description="Jacob is the lead host, bringing investigative reporting and a sharp focus to each case we cover.">
+        <div class="team-member" data-description="Jacob will oversee the sound design and overall quality of the podcast, ensuring an engaging and immersive experience for our listeners. He will incorporate impactful audio clips from interviews that elucidate the rationale behind police actions, enhancing the narrative through carefully selected soundscapes. By integrating psychological evidence and emotional context, he will help paint a vivid picture of the experiences of individuals affected by police misconduct, reinforcing the podcast’s mission to inform and provoke thought.">
             <img src="images/about/Jacob.jpg" alt="Person 1" class="headshot-image">
             <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Jacob</h2>
             <p>Lead Host and Researcher</p>
@@ -76,7 +80,7 @@
           
 
         <!-- Person 2 -->
-        <div class="team-member">
+        <div class="team-member" data-description="Jonah will delve into the psychology behind the blue code of silence that protects police officers involved in misconduct. He will explore the psychological motivations and social structures that contribute to this phenomenon, helping our audience understand why some officers prioritize loyalty over accountability. His analysis will provide a critical backdrop to the stories we share, illustrating the complexities of police culture and its implications for public safety.">
           <img src="images/about/Jonah.jpg" alt="Person 2" class="headshot-image">
           <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Jonah</h2>
           <p>Crime Analyst and Writer</p>
@@ -90,14 +94,14 @@
         </div>
 
         <!-- Person 4 -->
-        <div class="team-member">
+        <div class="team-member" data-description="Dylan will lead our analysis, meticulously reviewing cases that highlight both suspected and confirmed police corruption. His approach will include sifting through court records, internal police reports and conducting interviews with individuals affected by these incidents. By introducing critical evidence and providing potential updates on ongoing cases of police misconduct, he aims to shed light on the significant threats posed by such actions. Through his detailed examination, listeners will gain crucial insights into the broader implications of police corruption, including institutional cover-ups that often shield officers from accountability.">
           <img src="images/about/dylan.jpg" alt="Person 4" class="headshot-image">
           <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Dylan</h2>
           <p>Media Researcher</p>
         </div>
 
         <!-- Person 5 -->
-        <div class="team-member" style="background-color: rgba(0,0,0,0.6); padding: 1rem; border-radius: 10px; width: 250px;">
+        <div class="team-member" data-description="Jayden, as our reporter, will focus on gathering public opinion on police misconduct through interviews with civilians, community activists, and legal experts. He will specifically use the Sandra Birchmore case as a lens to explore community reactions and the perception of an unjust legal system. By engaging with public forums and gathering diverse viewpoints on community attitudes towards law enforcement, he will provide essential context. These discussions will enrich the understanding of ethical nuances surrounding police corruption and its detrimental effects on public trust in the justice system.">
           <img src="images/about/Jayden.jpg" alt="Person 5" class="headshot-image">
           <h2 style="color: #4b8bd4; margin-top: 0.5rem;">Jayden</h2>
           <p>Field Reporter</p>
@@ -106,8 +110,22 @@
       </div>
     </div>
   </div>
-  <div id="shared-description" style="margin-top: 3rem; font-size: 1.5rem; min-height: 100px; color: #dba100; transition: all 0.3s ease;">
-    <!-- Text will appear here when you click a person -->
+  <div id="shared-description-container" style="background-color:rgba(70, 121, 230, 0.4); height: 100%;">
+    <div id="shared-description" style="
+      font-size: 2rem; 
+      min-height: 100px; 
+      color: #dba100; 
+      opacity: 0; 
+      transform: translateY(20px); 
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      max-width: 36vw; 
+      margin: auto; 
+      margin-top: 3vh; 
+      margin-bottom: 2vh;">
+        <!-- Text will appear here when you click a person -->
+         Click Someone
+    </div>
+    
   </div>
 </div>
 
@@ -120,6 +138,7 @@
     &copy; 2025 In The Dark Media
   </div>
   <div class="footer-right">
+    <a href="credits.html" target="_blank">Credits</a>
     <a href="https://twitter.com" target="_blank">Twitter</a>
     <a href="https://instagram.com" target="_blank">Instagram</a>
     <a href="mailto:contact@bluewallpodcast.com">Email</a>
@@ -135,17 +154,57 @@
       member.addEventListener('mouseleave', () => {
         member.style.backgroundColor = 'rgba(0,0,0,0.6)';
       });
-    
-      // Click effect: change shared description
-      member.addEventListener('click', () => {
-        const description = member.getAttribute('data-description');
-        document.getElementById('shared-description').innerText = description;
-    
-        // Optional: visually highlight selected member
-        document.querySelectorAll('.team-member').forEach(m => {
-          m.style.border = 'none'; // reset others
+
+      let activeMember = null; // Track who is currently active
+
+      document.querySelectorAll('.team-member').forEach(member => {
+        member.addEventListener('mouseenter', () => {
+          member.style.backgroundColor = 'rgba(70, 121, 230, 0.4)';
         });
-        member.style.border = '2px solid #dba100'; // highlight clicked one
+        
+        member.addEventListener('mouseleave', () => {
+          member.style.backgroundColor = 'rgba(0,0,0,0.6)';
+        });
+
+        member.addEventListener('click', () => {
+          const descriptionElement = document.getElementById('shared-description');
+
+          // If clicked the same active member again → toggle off
+          if (activeMember === member) {
+            descriptionElement.style.opacity = '0';
+            descriptionElement.style.transform = 'translateY(20px)';
+            activeMember = null;
+
+            // Reset all box shadows
+            document.querySelectorAll('.team-member').forEach(m => {
+              m.style.border = '2px solid #4b8bd4'; // reset others
+              m.style.boxShadow = '0px 0px 20px #4b8bd4'; // reset to normal shadow
+            });
+
+            return; // stop here
+          }
+
+          // Otherwise, update description normally
+          descriptionElement.style.opacity = '0';
+          descriptionElement.style.transform = 'translateY(20px)';
+
+          setTimeout(() => {
+            descriptionElement.innerText = member.getAttribute('data-description');
+            descriptionElement.style.opacity = '1';
+            descriptionElement.style.transform = 'translateY(0)';
+          }, 200);
+
+          // Update who is active
+          activeMember = member;
+
+          // Reset all, then highlight clicked one
+          document.querySelectorAll('.team-member').forEach(m => {
+            m.style.border = '2px solid #4b8bd4'; // reset others
+            m.style.boxShadow = '0px 0px 20px #4b8bd4'; // reset to normal shadow
+          });
+          member.style.border = '2px solid #dba100'; // highlight clicked one
+          member.style.boxShadow = '0 0 20px #dba100'; // glow effect in golden color
+        });
       });
     });
     </script>
